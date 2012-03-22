@@ -1,0 +1,33 @@
+<% @page_title = "会員詳細" %>
+<h1><%= @page_title %></h1>
+<p><%= link_to "編集", [:edit, @members] %></p>
+<table class="attr">
+	<tr>
+		<th width="150">背番号</th>
+		<td><%= @members.number %></td>
+	</tr>
+	<tr>
+		<th>ニックネーム</th>
+		<td><%= @members.name %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= @members.full_name %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= @members.gender == 0 ? "男" : "女" %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= @members.birthday.try(:strftime, "%Y年%m月%d日") %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= @members.email %></td>
+	</tr>
+	<tr>
+		<th></th>
+		<td><%= @members.administrator? ? "○" : "-" %></td>
+	</tr>
+</table>
